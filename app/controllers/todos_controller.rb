@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:edit,:update,:show]
+  before_action :set_todo, only: [:edit,:update,:show,:destroy]
     def new
         @todo = Todo.new
     end
@@ -30,6 +30,12 @@ class TodosController < ApplicationController
 
     def index
       @todo = Todo.all
+    end
+
+    def destroy
+      @todo.destroy
+      flash[:notice] = "deleted successfully"
+      redirect_to todos_path
     end
 
     private
