@@ -1,0 +1,18 @@
+<h5>All of my todos<h5>
+<%= link_to "Create New Todo", new_todo_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% @todo.each do |todo| %>
+    <tr>
+      <td><%= todo.name %></td>
+      <td><%= todo.description %></td>
+      <td><%= link_to "Edit", edit_todo_path(todo) %></td>
+      <td><%= link_to "Show", todo_path(todo) %></td>
+      <td><%= link_to "Delete", todo_path(todo) %></td>
+
+    </tr>
+  <% end %>
+</table>
